@@ -2,7 +2,18 @@ import urllib2, time
 
 myTime = str((time.strftime("%m/%d/%Y")) + " at " + time.strftime("%I:%M %p"))
 
-scoreString = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html> <head> <meta http-equiv="content-type" content="text/html; charset=utf-8" />  <title>Startup MD Tally</title> <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.1/css/jquery.dataTables.css"> <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script> <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.1/jquery.dataTables.min.js"></script> <script type="text/javascript" charset="utf8">  $(document).ready(function(){  $('#example').dataTable({"aaSorting": [[ 1, "asc" ],[2, "desc"]],"iDisplayLength": -1});  }); </script> <style>.dataTables_length{visibility: hidden;}</style></head> <body> This site was created by <a href='http://CartoLabs.com' target='_blank'>CartoLabs</a> to quickly compare Likes and View Counts for each video and stop.</br> You can sort by one column (or multiple columns by holding the shift key).</br>Last updated at:  <b>""" + myTime + """</b>, and is updated every thirty minutes.<div class="container">  <table cellpadding="0" cellspacing="0" border="0" class="dataTable" id="example"> <thead> <tr><th>Video Title</th><th>Stop Name</th><th>Likes</th><th>Views</th></tr></thead><tbody>"""
+gaScript = """<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45186467-1', 'cartolabs.com');
+  ga('send', 'pageview');
+
+</script>"""
+
+scoreString = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html> <head> <meta http-equiv="content-type" content="text/html; charset=utf-8" />  <title>Startup MD Tally</title> <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.1/css/jquery.dataTables.css"> <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script> <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.1/jquery.dataTables.min.js"></script> <script type="text/javascript" charset="utf8">  $(document).ready(function(){  $('#example').dataTable({"aaSorting": [[ 1, "asc" ],[2, "desc"]],"iDisplayLength": -1});  }); </script>""" + gaScript + """ <style>.dataTables_length{visibility: hidden;}</style></head> <body> This site was created by <a href='http://CartoLabs.com' target='_blank'>CartoLabs</a> to quickly compare Likes and View Counts for each video and stop.</br> You can sort by one column (or multiple columns by holding the shift key).</br>Last updated at:  <b>""" + myTime + """</b>, and is updated every thirty minutes.<div class="container">  <table cellpadding="0" cellspacing="0" border="0" class="dataTable" id="example"> <thead> <tr><th>Video Title</th><th>Stop Name</th><th>Likes</th><th>Views</th></tr></thead><tbody>"""
 
 playlistArray = (("PLBN03TRv8YYdSElLZwRlxWXseYyAiHNOO","Ubalt"),\
 					("PLBN03TRv8YYd_gFUeOLYg4d0kPBi1EGhE","Gov Fest"),\
