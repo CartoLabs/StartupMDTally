@@ -42,7 +42,7 @@ for urlItem in playlistArray:
 			except:
 				pass
 
-outFile = open("index.html","w")
+outFile = open("/var/www/index.html","w")
 
 outFile.write(scoreString + "	</tbody></table></div></body></html>")
 
