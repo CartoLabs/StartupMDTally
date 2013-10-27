@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import urllib2, time
 
 myTime = str((time.strftime("%m/%d/%Y")) + " at " + time.strftime("%I:%M %p"))
